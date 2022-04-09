@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "antd/dist/antd.css";
+import "../public/css/style.css";
 import { Row, Col, Layout, Menu } from "antd";
 const { Header, Content } = Layout;
 
@@ -32,33 +33,34 @@ const PopularMovie = (props) => {
 
   return (
     <Layout>
-      <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
+      <Header className="header">
         <div className="logo" />
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
-          <Menu.Item key="1"  onClick={() => popularMovie()}>Popular Movie</Menu.Item>
-          <Menu.Item key="1" onClick={() => trendingMovie()}>Trending Movie</Menu.Item>
+          <Menu.Item key="1" onClick={() => popularMovie()}>
+            Popular Movie
+          </Menu.Item>
+          <Menu.Item key="1" onClick={() => trendingMovie()}>
+            Trending Movie
+          </Menu.Item>
         </Menu>
       </Header>
 
-      <Content
-        className="site-layout"
-        style={{ padding: "0 50px", marginTop: 64 }}
-      >
-        <div
-          className="site-layout-background"
-          style={{ padding: 100, minHeight: 380 }}
-        >
+      <Content className="site-layout content">
+        <div className="site-layout-background content-div">
           <Row gutter={[16, 16]}>
             {movies.map((movie, index) => (
               <Col span={4}>
-                <div>
-                  <img
-                    key={index}
-                    src={`http://image.tmdb.org/t/p/${process.env.REACT_APP_SIZE}` + movie.poster_path}
-                    alt="movie"
-                    onClick={() => movieInfo(movie)}
-                  ></img>
-                </div>
+                <img
+                  key={index}
+                  src={
+                    `http://image.tmdb.org/t/p/${process.env.REACT_APP_SIZE}` +
+                    movie.poster_path
+                  }
+                  alt="movie"
+                  onClick={() => movieInfo(movie)}
+                ></img>
+                <div style={{ fontWeight: "bold" }}>{movie.title}</div>
+                <div>{movie.release_date}</div>
               </Col>
             ))}
           </Row>

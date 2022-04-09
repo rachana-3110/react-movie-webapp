@@ -41,7 +41,7 @@ const MovieInfo = (props) => {
 
         <Content
           className="site-layout"
-          style={{ padding: "0 50px", marginTop: 64 }}
+          style={{ padding: "0 50px", marginTop: 20 }}
         >
           <div
             className="site-layout-background"
@@ -64,12 +64,12 @@ const MovieInfo = (props) => {
                     ></img>
                     <div
                       style={{
-                        color: "red",
+                        color: "white",
                         alignItems: "center",
                         flex: "display",
                         justifyContent: "center",
                         width: "300px",
-                        fontSize: "20px",
+                        fontSize: "15px",
                       }}
                     >
                       Title: {movie.title} <br></br>
